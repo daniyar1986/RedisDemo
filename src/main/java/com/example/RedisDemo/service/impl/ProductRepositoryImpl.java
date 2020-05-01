@@ -15,11 +15,9 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     private static final String REDIS_INDEX_KEY2 = "PRODUCTS2";
 
-    private RedisTemplate<String, Product> redisTemplate2;
     private HashOperations hashOperations;
 
     public ProductRepositoryImpl(RedisTemplate<String, Product> redisTemplate2) {
-        this.redisTemplate2 = redisTemplate2;
         hashOperations = redisTemplate2.opsForHash();
     }
 
