@@ -1,6 +1,7 @@
 package com.example.RedisDemo.config;
 
 
+import com.example.RedisDemo.model.Product;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -26,6 +27,13 @@ public class RedisConfig {
         redisTemplate.setHashValueSerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashValueSerializer(new StringRedisSerializer());
+        return redisTemplate;
+    }
+
+    @Bean
+    RedisTemplate<String, Product> getRedisTemplate2(){
+        RedisTemplate<String, Product> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(connectionFactory());
         return redisTemplate;
     }
 }
