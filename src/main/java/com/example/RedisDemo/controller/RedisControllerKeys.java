@@ -63,6 +63,10 @@ public class RedisControllerKeys {
         //show all list
         listOperations.range("num",0,-1);
 
+        zSetOperations.zCard("myset");
+        zSetOperations.add("myset","a",100);
+        zSetOperations.remove("myset","a");
+
         return "Example";
     }
 
