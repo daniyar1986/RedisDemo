@@ -1,10 +1,7 @@
 package com.example.RedisDemo.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SetOperations;
+import org.springframework.data.redis.core.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +18,7 @@ public class RedisControllerKeys {
     private HashOperations hashOperations;
     private ListOperations listOperations;
     private SetOperations setOperations;
+    private ZSetOperations zSetOperations;
     private RedisTemplate<String, Object> redisTemplate;
 
     public RedisControllerKeys(RedisTemplate<String, Object> redisTemplate) {
