@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -32,5 +33,11 @@ public class RedisControllerKeys {
     public List<Object> showAllHashValues(@PathVariable String key){
         return redisTemplate.opsForHash().values(key);
     }
+
+    @RequestMapping(value = "/{key}", method = RequestMethod.GET)
+    public Map<Object, Object> hGetAll(@PathVariable String key){
+        return redisTemplate.opsForHash().entries(key);
+    }
+
 
 }
