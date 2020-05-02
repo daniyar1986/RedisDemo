@@ -39,5 +39,10 @@ public class RedisControllerKeys {
         return redisTemplate.opsForHash().entries(key);
     }
 
+    @RequestMapping(value = "/{key}/size", method = RequestMethod.GET)
+    public Long hLen(@PathVariable String key){
+        return redisTemplate.opsForHash().size(key);
+    }
+
 
 }
