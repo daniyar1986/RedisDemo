@@ -16,5 +16,18 @@ public class RedisHashes {
         hashMap.put("likes", String.valueOf(20));
         hashMap.put("visitors", String.valueOf(23000));
         jedis.hset(key, hashMap);
+
+        jedis.hgetAll(key).forEach((s, s2) -> System.out.println("index:"+s+" value:"+s2));
+        System.out.println("Hash keys==============");
+        jedis.hkeys(key).forEach(System.out::println);
+        System.out.println("Hash values=============");
+        jedis.hvals(key).forEach(System.out::println);
+
+        jedis.hdel(key,"likes");
+        jedis.hgetAll(key).forEach((s, s2) -> System.out.println("index:"+s+" value:"+s2));
+        System.out.println(""+jedis.hexists(key,"likes"));
+
+        System.out.println(jedis.hlen(key));
+
     }
 }
